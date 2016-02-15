@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>ImagesDelay</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<!-- 导航 -->
+	<nav class="navbar navbar-default " role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+			         data-target="#example-navbar-collapse">
+			         <span class="sr-only">切换导航</span>
+			         <span class="icon-bar"></span>
+			         <span class="icon-bar"></span>
+			         <span class="icon-bar"></span>
+	      </button>
+				<a href="" class="navbar-brand"><strong>ImagesDelay.js</strong></a>
+			</div>
+			<div class="collapse navbar-collapse" id="example-navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li data-serial="1"><a href="javascript:;">介绍</a></li>
+					<li data-serial="2"><a href="javascript:;">下载</a></li>
+					<li data-serial="3"><a href="javascript:;">使用</a></li>
+					<li data-serial="4"><a href="javascript:;">演示</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- banner -->
+	<div class="item jumbotron">
+		<div class="wrap">
+			<h1>ImagesDelay.js</h1>
+			<h4>基于jQuery的轻量级图片延迟加载插件。</h4>
+			<a href="https://github.com/Rinyeo/jquery.imagesDelay.js" class="btn btn-info">查看GitHub项目主页</a>
+		</div>
+	</div>
+
+	<!-- section1 下载 -->
+	<section class="item section1">
+		<div class="container">
+			<h2>下载</h2>
+			<p>下载ImagesDelay.js文件</p>
+			<p class="title-line"></p>
+			<div class="col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+				<div class="wrap">
+					<h4>用于生产环境</h4>
+					<p class="info">经过压缩的代码，用于生产环境，节省流量。</p>
+					<a download href="download/jquery.imagesDelay.min.js" class="btn-info btn">下载 ImagesDelay.js </a>
+				</div>
+			</div>
+			<div class="col-sm-6 col-sm-offset-0 col-xs-10 col-xs-offset-1">
+				<div class="wrap">
+					<h4>用于学习研究</h4>
+					<p class="info">未经压缩的版本，您可以愉快地阅读它的代码。</p>
+					<a download href="download/jquery.imagesDelay.js" class="btn-info btn">下载 ImagesDelay.min.js </a>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- section2 使用方法 -->
+	<section class="item sction2">
+		<h2>使用方法</h2>
+		<p class="title-line"></p>
+		<div class="container">
+			<div class="text">
+
+				<p>1. 在html中引入 <code>jQeury</code> 和 <code>ImagesDelay.js</code>：</p>
+				<pre style="margin:20px 0;font:100 12px/18px monaco, andale mono, courier new;padding:10px 12px;border:#ddd 1px solid;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;script</span> <span style="color:#00c">src</span>=<span style="color:#a11">"jquery-1.11.1.min.js"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/script</span><span style="color:#170">&gt;</span><br><span style="color:#170">&lt;script</span> <span style="color:#00c">src</span>=<span style="color:#a11">"jquery.imagesDelay.js"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/script</span><span style="color:#170">&gt;</span></pre>
+
+				<p>2. 选中需要延迟加载的 <code>img</code> ，调用方法 ImagesDelay 方法：</p>
+				<pre style="margin:20px 0;font:100 12px/18px monaco, andale mono, courier new;padding:10px 12px;border:#ddd 1px solid;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#708">function</span>() {<br>  <span style="color:#000">$</span>(<span style="color:#a11">'.main img'</span>).<span style="color:#000">imagesDelay</span>();<br>});</pre>
+
+				<p>3. HTML中class="mian"下的子节点img会被延迟加载，如果想选取部分img，请使用筛选或者给img添加class。同时延迟加载的img应该符合以下规则： <br>
+				页面初始化时，<code>data-src</code> 属性为延迟加载的最终图片路径。<br>
+				页面初始化时，<code>src</code> 属性为延迟加载默认的图片路径。</p>
+				<pre style="margin:20px 0;font:100 12px/18px monaco, andale mono, courier new;padding:10px 12px;border:#ddd 1px solid;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#170">&lt;div</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;img</span> <span style="color:#00c">data-src</span>=<span style="color:#a11">"delay.jpg"</span> <span style="color:#00c">src</span>=<span style="color:#a11">"defualt.jpg"</span> <span style="color:#00c">width</span>=<span style="color:#a11">"100%"</span><span style="color:#170">&gt;</span><span style="color:#170">&lt;/div</span><span style="color:#170">&gt;</span></pre>
+
+				<p>4. imagesDelay()可以传入一个参数，可以控制游览器窗口底部到img上方距离多少时延时加载，默认为<code>100px</code>。</p>
+				<pre style="margin:20px 0;font:100 12px/18px monaco, andale mono, courier new;padding:10px 12px;border:#ddd 1px solid;background-color:#fefefe;box-shadow:0 0 4px #eee;word-break:break-all;word-wrap:break-word;color:#444"><span style="color:#000">$</span>(<span style="color:#708">function</span>() {<br>  <span style="color:#000">$</span>(<span style="color:#a11">'.main'</span>).<span style="color:#000">imagesDelay</span>(-<span style="color:#164">200</span>); <span style="color:#a50">//可以传入负值</span><br>});</pre>
+
+
+			</div>
+		</div>
+	</section>
+
+	<!-- section3 演示 -->
+	<section class="item section3">
+		<h2>项目演示</h2>
+		<p class="title-line"></p>
+		<p>为你准备了一个Demo实例，点击下方按钮查看</p>
+		<p><a target="_blank" href="http://rinhome.com/demo/imageDelay/" class="btn btn-info">查看Demo</a></p>
+	</section>
+	<footer class="footer">
+		<p class="footer-link">&copy;copyright Riny 2015-2016 | 黔ICP备15013351号-1</p>
+	</footer>
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(function() {
+			var $nav = $('.nav');
+			var $li = $('.nav li');
+			var $item = $('.item');
+
+			$nav.on('click', 'li', function() {
+				var serial = parseInt($(this).attr('data-serial'));
+				var length = $item.eq(serial-1).offset().top;
+
+				slide(length, $(this));
+			});
+
+			function slide(length,$this) {
+				$('body,html').stop().animate({scrollTop: length},600);
+			}
+		});
+	</script>
+</body>
+</html>
